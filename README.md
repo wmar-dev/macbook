@@ -242,6 +242,7 @@ brew install --cask <application>
 - [Audacity](https://www.audacityteam.org/)
 - [Blender](https://www.blender.org/)
 - [Chrome](https://www.google.com/chrome/)
+- [Docker Desktop](https://www.docker.com/)
 - [Firefox](https://www.firefox.com/)
 - [Fusion](https://www.autodesk.com/products/fusion-360/personal)
 - [Gimp](https://www.gimp.org/)
