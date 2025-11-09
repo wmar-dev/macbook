@@ -92,7 +92,7 @@ cat ~/.ssh/id_ed25519.pub  # Copy this to GitHub
 ### 3. Create First Project
 
 ```bash
-cd ~/dev/projects
+cd ~/Developer/projects
 mkdir my-project
 cd my-project
 
