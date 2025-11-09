@@ -257,6 +257,7 @@ brew install --cask <application>
 - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 - [OpenSCAD](https://openscad.org/)
 - [Sublime Text](https://www.sublimetext.com/)
+    - `sudo mkdir -p /usr/local/bin && sudo ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl`
 - [TexShop](https://pages.uoregon.edu/koch/texshop/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [VLC](https://www.videolan.org/vlc/)
