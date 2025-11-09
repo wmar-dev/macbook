@@ -65,7 +65,7 @@ Choose which environments to set up:
 ## Directory Structure Created
 
 ```
-~/dev/
+~/Developer/
 ├── projects/        # Your project files
 ├── learning/        # Learning resources and practice
 ├── scripts/         # Utility scripts
