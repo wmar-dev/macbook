@@ -91,20 +91,85 @@ else
     print_success "Git already installed"
 fi
 
+# Node.js and npm (using nvm)
+print_header "Installing Node.js/npm (using nvm)"
+if [ ! -d "$HOME/.nvm" ]; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install 24
+    print_success "Node.js and npm installed via nvm"
+else
+    print_success "nvm already installed"
+fi
+
 # 5. Install Code Editors and IDEs
+print_header "Installing Code Editors and IDEs"
 
 # 6. Install Productivity Tools
 print_header "Installing Productivity Tools"
 
+tools=(
+)
+
+for tool in "${tools[@]}"; do
+    if ! brew list "$tool" &> /dev/null; then
+        brew install "$tool"
+        print_success "$tool installed"
+    else
+        print_success "$tool already installed"
+    fi
+done
+
 # 7. Install Applications (via Homebrew Cask)
+print_header "Installing Common Applications"
+
+applications=(
+)
+
+for app in "${applications[@]}"; do
+    if ! brew list --cask "$app" &> /dev/null; then
+        brew install --cask "$app"
+        print_success "$app installed"
+    else
+        print_success "$app already installed"
+    fi
+done
 
 # 8. Configure Shell
+print_header "Configuring Shell"
+
+# Check if using zsh (default on macOS Catalina+)
+if [ -z "$SHELL" ] || [[ "$SHELL" != *"zsh"* ]]; then
+    chsh -s /bin/zsh
+    print_success "Shell changed to zsh"
+else
+    print_success "Already using zsh"
+fi
 
 # 9. Create development directories
+print_header "Creating Development Directory"
+
+mkdir -p ~/Developer
+
+print_success "Development directory created in ~/Developer/"
 
 # 10. Final cleanup and summary
 print_header "Setup Complete!"
 brew cleanup
 print_success "Homebrew cache cleaned"
 
+echo -e "\n${GREEN}Your MacBook is now set up!${NC}\n"
+echo "Next steps:"
+echo "  1. Launch Docker from Applications and complete its setup"
+echo "  2. Configure SSH keys: ssh-keygen -t ed25519 -C 'your_email@example.com'"
+echo "  3. Configure your shell (zsh) by editing ~/.zshrc"
+echo "  4. Install additional tools as needed with: brew install <package>"
+echo ""
+echo "Useful commands:"
+echo "  • brew search <package>  - Search for packages"
+echo "  • brew install <package> - Install a package"
+echo "  • brew upgrade           - Upgrade all packages"
+echo "  • brew list              - List installed packages"
+echo ""
 print_success "Setup script finished!"
