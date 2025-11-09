@@ -50,6 +50,10 @@ setup_nodejs() {
 setup_python() {
     print_header "Configuring Python Development Environment"
     
+    # Install uv
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    uv self update
+
     # Create virtual environment template
     python3 -m pip install --upgrade pip setuptools wheel
     
@@ -71,14 +75,14 @@ setup_python() {
     print_success "Python packages installed"
     
     # Create a Python project template
-    mkdir -p ~/dev/python-template
-    cat > ~/dev/python-template/requirements.txt << 'EOF'
+    mkdir -p ~/Developer/python-template
+    cat > ~/Developer/python-template/requirements.txt << 'EOF'
 # Add your project dependencies here
 requests>=2.28.0
 python-dotenv>=0.20.0
 EOF
     
-    print_success "Python project template created at ~/dev/python-template"
+    print_success "Python project template created at ~/Developer/python-template"
 }
 
 # Setup Ruby development
@@ -154,8 +158,8 @@ setup_docker() {
     print_header "Configuring Docker"
     
     # Create docker-compose template
-    mkdir -p ~/dev/docker-template
-    cat > ~/dev/docker-template/docker-compose.yml << 'EOF'
+    mkdir -p ~/Developer/docker-template
+    cat > ~/Developer/docker-template/docker-compose.yml << 'EOF'
 version: '3.8'
 
 services:
@@ -169,7 +173,7 @@ services:
       - NODE_ENV=development
 EOF
     
-    print_success "Docker template created at ~/dev/docker-template"
+    print_success "Docker template created at ~/Developer/docker-template"
 }
 
 # Setup VSCode extensions
@@ -212,8 +216,8 @@ setup_shell() {
 # ========================================
 
 # Navigation
-alias dev='cd ~/dev'
-alias projects='cd ~/dev/projects'
+alias dev='cd ~/Developer'
+alias projects='cd ~/Developer/projects'
 alias ll='ls -lah'
 alias ..='cd ..'
 alias ...='cd ../..'
