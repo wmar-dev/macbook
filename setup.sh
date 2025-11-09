@@ -91,6 +91,15 @@ else
     print_success "Git already installed"
 fi
 
+# Ruby
+print_header "Installing Ruby"
+if ! command -v ruby &> /dev/null; then
+    brew install ruby
+    print_success "Ruby installed"
+else
+    print_success "Ruby already installed"
+fi
+
 # Node.js and npm (using nvm)
 print_header "Installing Node.js/npm (using nvm)"
 if [ ! -d "$HOME/.nvm" ]; then
