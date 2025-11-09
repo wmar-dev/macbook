@@ -7,7 +7,14 @@ Complete automation scripts to set up a fresh MacBook with development tools and
 ### 1. Initial Setup (Required)
 
 ```bash
-curl -o- https://raw.githubusercontent.com/wmar-dev/macbook/main/setup.sh | bash
+# Download the setup script
+curl -O https://raw.githubusercontent.com/wmar-dev/macbook/main/setup.sh
+
+# Make it executable
+chmod +x setup.sh
+
+# Run the setup
+bash setup.sh
 ```
 
 The initial setup script will:
