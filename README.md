@@ -238,6 +238,21 @@ brew install <package>
 brew install --cask <application>
 ```
 
+## Applications
+- [Audacity](https://www.audacityteam.org/)
+- [Blender](https://www.blender.org/)
+- [Chrome](https://www.google.com/chrome/)
+- [Firefox](https://www.firefox.com/)
+- [Fusion](https://www.autodesk.com/products/fusion-360/personal)
+- [Gimp](https://www.gimp.org/)
+- [LibreOffice](https://www.libreoffice.org/)
+- [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+- [OpenSCAD](https://openscad.org/)
+- [Sublime Text](https://www.sublimetext.com/)
+- [TexShop](https://pages.uoregon.edu/koch/texshop/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [VLC](https://www.videolan.org/vlc/)
+
 ## Support & Resources
 
 - **Homebrew**: https://brew.sh
