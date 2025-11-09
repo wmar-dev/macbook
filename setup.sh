@@ -16,6 +16,18 @@ print_header() {
     echo -e "${BLUE}========================================${NC}\n"
 }
 
+print_success() {
+    echo -e "${GREEN}✓ $1${NC}"
+}
+
+print_warning() {
+    echo -e "${YELLOW}⚠ $1${NC}"
+}
+
+print_error() {
+    echo -e "${RED}✗ $1${NC}"
+}
+
 # 1. Install Xcode Command Line Tools
 print_header "Installing Xcode Command Line Tools"
 if ! command -v xcode-select &> /dev/null; then
