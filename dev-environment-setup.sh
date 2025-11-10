@@ -52,24 +52,36 @@ setup_python() {
     
     # Install uv
     curl -LsSf https://astral.sh/uv/install.sh | sh
+    source $HOME/.local/bin/env
     uv self update
 
-    # Create virtual environment template
-    python3 -m pip install --upgrade pip setuptools wheel
+    cd ~
+    if [ -d ".venv" ]; then
+        echo "Virtual environment already exists at ~/.venv"
+        echo "Activating existing environment..."
+    else
+        echo "Creating new virtual environment..."
+        uv venv
+    fi
     
     # Install common Python packages
-    python3 -m pip install \
+    uv pip install \
+        anthropic \
+        autopep8 \
+        python-dotenv \
         virtualenv \
         pipenv \
         poetry \
         black \
         flake8 \
+        jupyter \
         pylint \
         pytest \
         requests \
         numpy \
+        scipy \
+        matplotlib \
         pandas \
-        django \
         flask
     
     print_success "Python packages installed"
