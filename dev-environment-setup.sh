@@ -202,6 +202,7 @@ setup_vscode() {
         "gitpod.workspace-full"
         "eamodio.gitlens"
         "ms-vscode.remote-repositories"
+        "anthropic.claude-code"
     )
     
     for ext in "${extensions[@]}"; do
