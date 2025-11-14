@@ -72,21 +72,22 @@ setup_python() {
         aisuite[anthropic,google,openai,mcp] \
         anthropic \
         autopep8 \
-        python-dotenv \
-        virtualenv \
-        pipenv \
-        poetry \
         black \
         flake8 \
+        flask \
         jupyter \
+        matplotlib \
+        numpy \
+        pandas \
+        pipenv \
+        poetry \
         pylint \
         pytest \
+        python-dotenv \
         requests \
-        numpy \
         scipy \
-        matplotlib \
-        pandas \
-        flask
+        torch \
+        virtualenv
 
     # Deactivate virtual environment
     deactivate
