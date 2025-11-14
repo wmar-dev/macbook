@@ -54,18 +54,22 @@ setup_python() {
     curl -LsSf https://astral.sh/uv/install.sh | sh
     source $HOME/.local/bin/env
     uv self update
+    uv python install
 
     cd ~
     if [ -d ".venv" ]; then
         echo "Virtual environment already exists at ~/.venv"
         echo "Activating existing environment..."
+        source .venv/bin/activate
     else
         echo "Creating new virtual environment..."
         uv venv
+        source .venv/bin/activate
     fi
-    
+
     # Install common Python packages
     uv pip install \
+        aisuite[anthropic,google,openai,mcp] \
         anthropic \
         autopep8 \
         python-dotenv \
@@ -83,7 +87,10 @@ setup_python() {
         matplotlib \
         pandas \
         flask
-    
+
+    # Deactivate virtual environment
+    deactivate
+
     print_success "Python packages installed"
     
     # Create a Python project template
