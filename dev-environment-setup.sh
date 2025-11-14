@@ -197,6 +197,7 @@ setup_vscode() {
         "dbaeumer.vscode-eslint"
         "ms-python.python"
         "ms-python.vscode-pylance"
+        "ms-python.black-formatter"
         "rebornix.ruby"
         "ms-docker.docker"
         "gitpod.workspace-full"
