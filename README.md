@@ -120,6 +120,119 @@ git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 ```
 
+## Battery Life Optimization
+
+These settings and practices will help maximize your MacBook's battery life during development work:
+
+### System Settings
+
+**Display & Brightness**
+```bash
+# Reduce screen brightness (use keyboard: F1/F2 or adjust in System Settings)
+# Enable auto-brightness: System Settings > Display > Automatically adjust brightness
+# Reduce display sleep time: System Settings > Lock Screen > Turn display off after 2-5 minutes
+```
+
+**Energy Saver Settings**
+- Navigate to **System Settings > Battery**
+- Enable "Low power mode" when on battery
+- Enable "Optimize video streaming while on battery"
+- Turn off "Wake for network access" when on battery
+
+**Reduce Background Activity**
+```bash
+# Disable Spotlight indexing for specific folders
+sudo mdutil -i off /path/to/folder
+
+# Check battery-draining processes
+top -o power
+
+# Check energy impact by app
+Activity Monitor > Energy tab > Sort by "Energy Impact"
+```
+
+### Development-Specific Optimizations
+
+**Docker**
+```bash
+# Quit Docker when not actively using it
+# In Docker Desktop: Preferences > Resources > Reduce CPUs and Memory allocation
+# Set CPUs to 2-4 and Memory to 4-6GB instead of defaults
+
+# Stop unused containers
+docker stop $(docker ps -q)
+```
+
+**Node.js & Development Servers**
+```bash
+# Stop dev servers when not actively developing
+# Use nodemon with polling disabled for file watching
+nodemon --no-stdin --legacy-watch false
+
+# For webpack dev server, reduce resource usage
+# In webpack.config.js:
+# devServer: { watchOptions: { poll: false } }
+```
+
+**VS Code**
+```json
+// Add to settings.json (Cmd+, then click icon in top-right)
+{
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true
+  },
+  "search.followSymlinks": false,
+  "extensions.autoUpdate": false,  // Update manually
+  "extensions.autoCheckUpdates": false
+}
+```
+
+### Best Practices
+
+1. **Close Unused Applications**: Quit apps completely (Cmd+Q) instead of minimizing
+2. **Limit Browser Tabs**: Each tab consumes CPU and memory
+3. **Disable Bluetooth/Wi-Fi**: Turn off when not needed
+4. **Use Safari**: More energy-efficient than Chrome for browsing
+5. **Avoid Video Calls**: Use audio-only when possible (Zoom, Slack)
+6. **Keep macOS Updated**: Updates often include battery optimizations
+7. **Manage Menu Bar Apps**: Quit background apps running in menu bar
+8. **Disable File Syncing**: Pause Dropbox, OneDrive, Google Drive when on battery
+9. **Use Dark Mode**: Slightly reduces power on OLED screens (recent MacBook Pros)
+
+### Quick Battery Check
+
+```bash
+# Check battery status
+pmset -g batt
+
+# Check battery health
+system_profiler SPPowerDataType | grep -A 5 "Health Information"
+
+# See what's preventing sleep
+pmset -g assertions
+
+# Check power-hungry processes
+sudo powermetrics --samplers tasks --show-process-energy -n 1
+```
+
+### Battery Maintenance
+
+- **Optimal Charge Range**: Keep battery between 20-80% for longevity
+- **Enable Optimized Battery Charging**: System Settings > Battery > Battery Health > Optimized Battery Charging
+- **Calibrate Occasionally**: Once every 2-3 months, fully discharge then fully charge
+- **Avoid Extreme Temperatures**: Keep MacBook in 50-95°F (10-35°C) environments
+
+# Close everything except essential apps
+# Reduce brightness to minimum
+# Enable Low Power Mode: System Settings > Battery
+# Disable Wi-Fi and Bluetooth
+# Quit Docker, VS Code, and all dev servers
+# Use Terminal instead of GUI apps when possible
+```
+
 ## Common Commands
 
 ### Homebrew
