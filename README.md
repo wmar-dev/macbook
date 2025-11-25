@@ -131,6 +131,10 @@ These settings and practices will help maximize your MacBook's battery life duri
 # Reduce screen brightness (use keyboard: F1/F2 or adjust in System Settings)
 # Enable auto-brightness: System Settings > Display > Automatically adjust brightness
 # Reduce display sleep time: System Settings > Lock Screen > Turn display off after 2-5 minutes
+
+# Reduce keyboard backlight timeout to 1 minute
+# System Settings > Keyboard > Turn keyboard backlight off after inactivity > 1 minute
+# Or turn off keyboard backlight completely (F5 key)
 ```
 
 **Energy Saver Settings**
