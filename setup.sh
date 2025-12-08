@@ -120,6 +120,8 @@ print_header "Installing Productivity Tools"
 
 tools=(
     gh
+    ffmpeg
+    deno
 )
 
 for tool in "${tools[@]}"; do
