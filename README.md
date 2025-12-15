@@ -229,14 +229,6 @@ sudo powermetrics --samplers tasks --show-process-energy -n 1
 - **Calibrate Occasionally**: Once every 2-3 months, fully discharge then fully charge
 - **Avoid Extreme Temperatures**: Keep MacBook in 50-95°F (10-35°C) environments
 
-# Close everything except essential apps
-# Reduce brightness to minimum
-# Enable Low Power Mode: System Settings > Battery
-# Disable Wi-Fi and Bluetooth
-# Quit Docker, VS Code, and all dev servers
-# Use Terminal instead of GUI apps when possible
-```
-
 ## Common Commands
 
 ### Homebrew
@@ -371,6 +363,7 @@ brew install --cask <application>
 - [Fusion](https://www.autodesk.com/products/fusion-360/personal)
 - [Gimp](https://www.gimp.org/)
 - [LibreOffice](https://www.libreoffice.org/)
+- [qBittorrent](https://www.qbittorrent.org/)
 - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 - [OpenSCAD](https://openscad.org/)
 - [Sublime Text](https://www.sublimetext.com/)
