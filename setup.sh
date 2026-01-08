@@ -119,9 +119,10 @@ print_header "Installing Code Editors and IDEs"
 print_header "Installing Productivity Tools"
 
 tools=(
-    gh
-    ffmpeg
     deno
+    ffmpeg
+    gh
+    graphviz
 )
 
 for tool in "${tools[@]}"; do
