@@ -138,6 +138,7 @@ done
 print_header "Installing Common Applications"
 
 applications=(
+    basictex
 )
 
 for app in "${applications[@]}"; do
