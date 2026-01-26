@@ -362,7 +362,12 @@ brew install --cask <application>
 - [Firefox](https://www.firefox.com/)
 - [Fusion](https://www.autodesk.com/products/fusion-360/personal)
 - [Gimp](https://www.gimp.org/)
+- [JabRef](https://www.jabref.org)
 - [LibreOffice](https://www.libreoffice.org/)
+- [MacTeX](https://www.tug.org/mactex/)
+    - Use BasicTex to save space and install packages as needed.
+    - `sudo tlmgr install minted` to install the minted package.
+    - Other useful packages: todonotes.
 - [qBittorrent](https://www.qbittorrent.org/)
 - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 - [OpenSCAD](https://openscad.org/)
