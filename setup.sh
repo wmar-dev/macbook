@@ -121,6 +121,7 @@ print_header "Installing Productivity Tools"
 tools=(
     deno
     ffmpeg
+    gemini-cli
     gh
     graphviz
 )
