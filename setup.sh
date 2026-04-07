@@ -119,11 +119,13 @@ print_header "Installing Code Editors and IDEs"
 print_header "Installing Productivity Tools"
 
 tools=(
+    db-browser-for-sqlite
     deno
     ffmpeg
     gemini-cli
     gh
     graphviz
+    openscad
 )
 
 for tool in "${tools[@]}"; do
@@ -140,6 +142,7 @@ print_header "Installing Common Applications"
 
 applications=(
     basictex
+    claude
 )
 
 for app in "${applications[@]}"; do
