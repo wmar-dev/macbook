@@ -87,10 +87,10 @@ Look for the `configure_git()` function and add to the git config commands.
 
 - Both scripts are designed to be idempotent - they check for existing installations and skip if already present
 - The repository is in active development with frequent small commits adding tools incrementally
-- Current uncommitted changes in setup.sh add db-browser-for-sqlite, openscad, and claude
 - Scripts support both ARM64 (Apple Silicon) and x86_64 (Intel) architectures
 - Installation time varies from 20-45 minutes depending on internet speed
 - Some installations may require sudo password
+- Docker, VS Code, and Python are NOT installed by setup.sh (they can be configured via dev-environment-setup.sh or installed manually)
 
 ## Testing Changes
 

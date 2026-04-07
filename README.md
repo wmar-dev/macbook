@@ -20,10 +20,9 @@ bash setup.sh
 The initial setup script will:
 - ✓ Install Xcode Command Line Tools
 - ✓ Install and configure Homebrew
-- ✓ Install Git, Node.js, Python, Ruby
-- ✓ Install Docker
-- ✓ Install VS Code
-- ✓ Install common productivity apps (Slack, Notion, Zoom, Spotify, VLC)
+- ✓ Install Git, Ruby, and Node.js (via nvm v24)
+- ✓ Install development tools (db-browser-for-sqlite, deno, ffmpeg, gemini-cli, gh, graphviz, openscad)
+- ✓ Install applications (basictex, claude)
 - ✓ Configure your shell (zsh)
 - ✓ Create development directories
 
@@ -37,8 +36,8 @@ bash dev-environment-setup.sh
 ```
 
 Choose which environments to set up:
-- Node.js (npm, yarn, pnpm, TypeScript, ESLint, Prettier)
-- Python (virtualenv, Poetry, Flask, Django, pytest, numpy, pandas)
+- Node.js (yarn, pnpm, TypeScript, ESLint, Prettier, frameworks)
+- Python (uv package manager, virtualenv at ~/.venv, common packages)
 - Ruby (rbenv, Bundler)
 - Git (aliases, global gitignore, configuration)
 - Docker (compose templates)
@@ -49,25 +48,25 @@ Choose which environments to set up:
 
 ### Package Managers
 - **Homebrew** - macOS package manager
-- **nvm** - Node version manager
-- **rbenv** - Ruby version manager
-- **pip** - Python package manager
+- **nvm** - Node version manager (v24)
+
+### Development Languages
+- **Git** - Version control
+- **Node.js & npm** - JavaScript runtime and package manager (via nvm)
+- **Ruby** - Ruby runtime
 
 ### Development Tools
-- **Git** - Version control
-- **Node.js & npm** - JavaScript runtime and package manager
-- **Python 3** - Python runtime
-- **Ruby** - Ruby runtime
-- **Docker** - Container platform
-
-### Editors & IDEs
-- **VS Code** - Code editor with extensions
-
-### CLI Tools
-- curl, wget, vim, htop, tree, jq, zsh-completions
+- **db-browser-for-sqlite** - SQLite database browser
+- **deno** - JavaScript/TypeScript runtime
+- **ffmpeg** - Multimedia framework
+- **gemini-cli** - Google Gemini AI CLI
+- **gh** - GitHub CLI
+- **graphviz** - Graph visualization software
+- **openscad** - 3D CAD modeling software
 
 ### Applications
-- Slack, Notion, Figma, Zoom, Spotify, VLC
+- **basictex** - Lightweight LaTeX distribution
+- **claude** - Claude AI desktop application
 
 ## Directory Structure Created
 
@@ -93,6 +92,9 @@ cat ~/.ssh/id_ed25519.pub  # Copy this to GitHub
 
 ### 2. Configure VS Code
 
+Note: VS Code is not installed by setup.sh. Install it from https://code.visualstudio.com or via dev-environment-setup.sh
+
+After installation:
 - Install extensions manually: Extensions marketplace in VS Code
 - Or use the dev-environment-setup.sh script (option 6)
 
@@ -106,7 +108,7 @@ cd my-project
 # For Node.js
 npm init -y
 
-# For Python
+# For Python (requires Python installation first)
 python3 -m venv venv
 source venv/bin/activate
 ```
@@ -250,6 +252,7 @@ npm install -g <package>    # Install global npm package
 ```
 
 ### Python
+Note: Python must be installed manually or via dev-environment-setup.sh
 ```bash
 python3 --version           # Check Python version
 python3 -m venv venv        # Create virtual environment
@@ -258,6 +261,7 @@ pip install <package>       # Install Python package
 ```
 
 ### Docker
+Note: Docker must be installed manually (see "What's Not Included" section)
 ```bash
 docker --version            # Check Docker version
 docker run hello-world      # Test Docker installation
@@ -331,17 +335,28 @@ source ~/.zshrc
 ```
 
 ### Docker won't start
-1. Launch Docker from Applications
-2. Complete Docker setup wizard
-3. Verify: `docker run hello-world`
+Note: Docker is not installed by the setup scripts. Install manually from:
+1. Download Docker Desktop: https://www.docker.com/products/docker-desktop
+2. Launch Docker from Applications
+3. Complete Docker setup wizard
+4. Verify: `docker run hello-world`
 
 ### VS Code extensions won't install
-- Ensure VS Code is installed and in your PATH
+- First install VS Code (not included in setup.sh)
+- Ensure VS Code is in your PATH: `code --version`
 - Install extensions manually through VS Code marketplace
+- Or use dev-environment-setup.sh (option 6) after installing VS Code
 
 ## What's Not Included
 
-This setup focuses on general development. You may want to add:
+The setup.sh script focuses on core development tools. You may want to add:
+
+**Common tools to install manually or via dev-environment-setup.sh**:
+- **Python 3** - Use dev-environment-setup.sh or `brew install python`
+- **Docker Desktop** - Download from https://www.docker.com/products/docker-desktop
+- **VS Code** - Download from https://code.visualstudio.com or use dev-environment-setup.sh
+
+**Other tools you may need**:
 - **Language-specific tools**: Go, Rust, PHP, Java, etc.
 - **Databases**: PostgreSQL, MySQL, MongoDB
 - **Cloud tools**: AWS CLI, Google Cloud SDK, Terraform
