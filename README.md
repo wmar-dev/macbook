@@ -380,9 +380,12 @@ brew install --cask <application>
 - [JabRef](https://www.jabref.org)
 - [LibreOffice](https://www.libreoffice.org/)
 - [MacTeX](https://www.tug.org/mactex/)
-    - Use BasicTex to save space and install packages as needed.
-    - `sudo tlmgr install minted` to install the minted package.
-    - Other useful packages: todonotes.
+    - Use BasicTeX (installed by setup.sh) to save space and install packages as needed.
+    - Update tlmgr before installing packages: `sudo tlmgr update --self`
+    - Install a package: `sudo tlmgr install <package-name>`
+    - Search for packages: `tlmgr search --global <keyword>`
+    - List installed packages: `tlmgr list --only-installed`
+    - Useful packages: `minted` (code highlighting), `todonotes` (margin notes), `enumitem` (list customization), `booktabs` (professional tables), `microtype` (typography), `hyperref` (PDF links), `biblatex` (bibliography)
 - [qBittorrent](https://www.qbittorrent.org/)
 - [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 - [OpenSCAD](https://openscad.org/)
