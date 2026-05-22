@@ -95,6 +95,7 @@ cat ~/.ssh/id_ed25519.pub  # Copy this to GitHub
 Note: VS Code is not installed by setup.sh. Install it from https://code.visualstudio.com or via dev-environment-setup.sh
 
 After installation:
+- Add `code` to your PATH: Open VS Code, press `Cmd+Shift+P`, type **Shell Command: Install 'code' command in PATH**, and press Enter
 - Install extensions manually: Extensions marketplace in VS Code
 - Or use the dev-environment-setup.sh script (option 6)
 
