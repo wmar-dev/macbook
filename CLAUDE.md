@@ -110,3 +110,7 @@ The README.md contains extensive documentation including:
 - Manual application installation links for tools not in scripts (GIMP, JabRef, MacTeX, etc.)
 
 Always keep README.md updated when adding new tools to the setup scripts.
+
+## License
+
+This repository is licensed under the MIT License. See [LICENSE](LICENSE) for details.

@@ -407,7 +407,7 @@ brew install --cask <application>
 
 ## License
 
-These scripts are provided as-is for personal and educational use.
+MIT License — Copyright (c) 2026 Warren Mar. See [LICENSE](LICENSE) for details.
 
 ## Notes
 
