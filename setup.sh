@@ -119,12 +119,14 @@ print_header "Installing Code Editors and IDEs"
 print_header "Installing Productivity Tools"
 
 tools=(
+    codex
     db-browser-for-sqlite
     deno
     ffmpeg
     gemini-cli
     gh
     graphviz
+    opencode
     openscad
 )
 
