@@ -127,6 +127,7 @@ tools=(
     gh
     graphviz
     hf
+    ollama
     opencode
     openscad
 )
