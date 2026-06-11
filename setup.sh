@@ -126,6 +126,7 @@ tools=(
     gemini-cli
     gh
     graphviz
+    hf
     opencode
     openscad
 )
