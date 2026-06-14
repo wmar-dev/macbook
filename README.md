@@ -44,6 +44,15 @@ Choose which environments to set up:
 - VS Code extensions
 - Shell optimization (aliases and functions)
 
+### 3. Disk Space Cleanup (Optional)
+
+Free up space from package manager caches and build artifacts:
+
+```bash
+chmod +x clean-disk-space.sh
+bash clean-disk-space.sh
+```
+
 ## What Gets Installed
 
 ### Package Managers
@@ -123,6 +132,27 @@ If not already done during setup:
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 ```
+
+## Disk Space Cleanup
+
+`clean-disk-space.sh` provides `uv cache clean`-style cleanup for common developer caches. It's interactive — pick which caches to clear, or view sizes first without making changes:
+
+```bash
+bash clean-disk-space.sh
+```
+
+Options include:
+- uv cache
+- pip cache
+- npm cache (+ node-gyp)
+- Homebrew cache + unused dependencies
+- cargo cache (requires `cargo-cache`)
+- Go module cache
+- Docker (dangling images/containers)
+- Xcode DerivedData
+- Show cache sizes only (no changes)
+
+Everything cleaned is safely regenerable — caches are simply re-downloaded or rebuilt on next use. The script never touches Trash, Time Machine snapshots, or log files.
 
 ## Battery Life Optimization
 
