@@ -46,6 +46,7 @@ show_cache_sizes() {
         "$HOME/.cargo/registry" \
         "$HOME/go/pkg/mod" \
         "$HOME/Library/Developer/Xcode/DerivedData" \
+        "$HOME/.cache/huggingface" \
         "$HOME/Library/Logs" \
         "$HOME/.Trash"
     do
@@ -138,6 +139,16 @@ clean_xcode_derived_data() {
     fi
 }
 
+clean_hugging_face() {
+    if [ -d "$HOME/.cache/huggingface" ]; then
+        print_header "Cleaning Hugging Face cache"
+        rm -rf "$HOME/.cache/huggingface"/*
+        print_success "Hugging Face cache cleaned"
+    else
+        print_warning "No Hugging Face cache found, skipping"
+    fi
+}
+
 run_all() {
     clean_uv
     clean_pip
@@ -147,6 +158,7 @@ run_all() {
     clean_go
     clean_docker
     clean_xcode_derived_data
+    clean_hugging_face
 }
 
 # Main menu
@@ -164,8 +176,9 @@ echo "5) cargo cache (requires cargo-cache)"
 echo "6) Go module cache"
 echo "7) Docker (dangling images/containers)"
 echo "8) Xcode DerivedData"
-echo "9) Show cache sizes only (no changes)"
-echo "A) All of the above (1-8)"
+echo "9) Hugging Face cache"
+echo "10) Show cache sizes only (no changes)"
+echo "A) All of the above (1-9)"
 echo "0) Cancel"
 echo ""
 
@@ -188,7 +201,8 @@ else
             6) clean_go ;;
             7) clean_docker ;;
             8) clean_xcode_derived_data ;;
-            9) show_cache_sizes ;;
+            9) clean_hugging_face ;;
+            10) show_cache_sizes ;;
             *) print_warning "Unknown option: $choice" ;;
         esac
     done

@@ -150,6 +150,7 @@ Options include:
 - Go module cache
 - Docker (dangling images/containers)
 - Xcode DerivedData
+- Hugging Face cache
 - Show cache sizes only (no changes)
 
 Everything cleaned is safely regenerable — caches are simply re-downloaded or rebuilt on next use. The script never touches Trash, Time Machine snapshots, or log files.
