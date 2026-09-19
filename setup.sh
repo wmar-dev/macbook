@@ -119,6 +119,7 @@ print_header "Installing Code Editors and IDEs"
 print_header "Installing Productivity Tools"
 
 tools=(
+    aspell
     codex
     db-browser-for-sqlite
     deno
