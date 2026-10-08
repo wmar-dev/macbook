@@ -436,6 +436,7 @@ brew install --cask <application>
 
 ## Support & Resources
 
+- **Claude Code**: see [CLAUDE_CODE_USAGE.md](CLAUDE_CODE_USAGE.md) for install and usage
 - **Homebrew**: https://brew.sh
 - **Node.js/nvm**: https://github.com/nvm-sh/nvm
 - **Python**: https://www.python.org
