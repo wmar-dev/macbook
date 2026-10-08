@@ -21,7 +21,7 @@ The initial setup script will:
 - ✓ Install Xcode Command Line Tools
 - ✓ Install and configure Homebrew
 - ✓ Install Git, Ruby, and Node.js (via nvm v24)
-- ✓ Install development tools (aspell, db-browser-for-sqlite, deno, ffmpeg, gemini-cli, gh, graphviz, imagemagick, ollama, openscad)
+- ✓ Install development tools (aspell, codex, db-browser-for-sqlite, deno, ffmpeg, gemini-cli, gh, go, graphviz, hf, imagemagick, ollama, opencode, openscad)
 - ✓ Install applications (basictex, claude)
 - ✓ Configure your shell (zsh)
 - ✓ Create development directories
@@ -61,19 +61,23 @@ bash clean-disk-space.sh
 
 ### Development Languages
 - **Git** - Version control
+- **Go** - Go programming language
 - **Node.js & npm** - JavaScript runtime and package manager (via nvm)
 - **Ruby** - Ruby runtime
 
 ### Development Tools
 - **aspell** - Spell checker
+- **codex** - OpenAI Codex CLI
 - **db-browser-for-sqlite** - SQLite database browser
 - **deno** - JavaScript/TypeScript runtime
 - **ffmpeg** - Multimedia framework
 - **gemini-cli** - Google Gemini AI CLI
 - **gh** - GitHub CLI
 - **graphviz** - Graph visualization software
+- **hf** - Hugging Face CLI
 - **imagemagick** - Image manipulation and conversion tool
 - **ollama** - Run large language models locally
+- **opencode** - Opencode AI CLI
 - **openscad** - 3D CAD modeling software
 
 ### Applications

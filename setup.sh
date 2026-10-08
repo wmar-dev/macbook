@@ -126,6 +126,7 @@ tools=(
     ffmpeg
     gemini-cli
     gh
+    go
     graphviz
     hf
     imagemagick
