@@ -203,6 +203,9 @@ Activity Monitor > Energy tab > Sort by "Energy Impact"
 # Quit Docker when not actively using it
 # In Docker Desktop: Preferences > Resources > Reduce CPUs and Memory allocation
 # Set CPUs to 2-4 and Memory to 4-6GB instead of defaults
+# Reduce disk usage: Resources > Disk image size (lower the virtual disk limit)
+# Then reclaim space: docker system prune -a --volumes
+# (removes unused images, stopped containers, networks, and unused volumes)
 
 # Stop unused containers
 docker stop $(docker ps -q)
