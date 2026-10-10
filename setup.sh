@@ -130,6 +130,7 @@ tools=(
     graphviz
     hf
     imagemagick
+    ncdu
     ollama
     opencode
     openscad
