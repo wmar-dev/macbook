@@ -41,6 +41,9 @@ show_cache_sizes() {
         "$HOME/Library/Caches/uv" \
         "$HOME/Library/Caches/pip" \
         "$HOME/.npm" \
+        "$HOME/Library/Caches/Yarn" \
+        "$HOME/Library/pnpm/store" \
+        "$HOME/.deno" \
         "$HOME/Library/Caches/node-gyp" \
         "$HOME/Library/Caches/Homebrew" \
         "$HOME/.cargo/registry" \
@@ -59,7 +62,11 @@ show_cache_sizes() {
 clean_uv() {
     if command -v uv &> /dev/null; then
         print_header "Cleaning uv cache"
-        uv cache clean && print_success "uv cache cleaned"
+        if uv cache clean; then
+            print_success "uv cache cleaned"
+        else
+            print_warning "uv cache is in use. Check 'pgrep -fl uv', quit those processes, and retry (or run 'uv cache clean --force' if nothing is running)"
+        fi
     else
         print_warning "uv not found, skipping"
     fi
@@ -121,8 +128,9 @@ clean_go() {
 
 clean_docker() {
     if command -v docker &> /dev/null; then
-        print_header "Cleaning Docker (dangling images/containers/networks)"
+        print_header "Cleaning Docker (dangling images/containers/networks/build cache)"
         docker system prune -f && print_success "Docker cleaned"
+        docker builder prune -f && print_success "Docker build cache cleaned"
         print_info "Note: run 'docker system prune -a' separately to also remove unused (but tagged) images"
     else
         print_warning "docker not found, skipping"
@@ -149,6 +157,57 @@ clean_hugging_face() {
     fi
 }
 
+clean_yarn_pnpm() {
+    print_header "Cleaning yarn/pnpm caches"
+    if command -v yarn &> /dev/null; then
+        yarn cache clean && print_success "yarn cache cleaned"
+    else
+        print_warning "yarn not found, skipping"
+    fi
+    if command -v pnpm &> /dev/null; then
+        pnpm store prune && print_success "pnpm store pruned"
+    else
+        print_warning "pnpm not found, skipping"
+    fi
+}
+
+clean_xcode_simulators() {
+    if command -v xcrun &> /dev/null && xcrun simctl help &> /dev/null; then
+        print_header "Removing unavailable Xcode simulators"
+        xcrun simctl delete unavailable && print_success "Unavailable simulators removed"
+    else
+        print_warning "xcrun simctl not found, skipping"
+    fi
+}
+
+clean_logs() {
+    if [ -d "$HOME/Library/Logs" ]; then
+        print_header "Cleaning user logs"
+        rm -rf "$HOME/Library/Logs"/*
+        print_success "~/Library/Logs cleaned"
+    else
+        print_warning "No ~/Library/Logs found, skipping"
+    fi
+}
+
+clean_deno() {
+    if command -v deno &> /dev/null; then
+        print_header "Cleaning Deno cache"
+        deno clean && print_success "Deno cache cleaned"
+    else
+        print_warning "deno not found, skipping"
+    fi
+}
+
+clean_gems() {
+    if command -v gem &> /dev/null; then
+        print_header "Removing old Ruby gem versions"
+        gem cleanup && print_success "Old gems removed"
+    else
+        print_warning "gem not found, skipping"
+    fi
+}
+
 run_all() {
     clean_uv
     clean_pip
@@ -159,6 +218,11 @@ run_all() {
     clean_docker
     clean_xcode_derived_data
     clean_hugging_face
+    clean_yarn_pnpm
+    clean_xcode_simulators
+    clean_logs
+    clean_deno
+    clean_gems
 }
 
 # Main menu
@@ -174,11 +238,16 @@ echo "3) npm cache (+ node-gyp)"
 echo "4) Homebrew cache + unused deps"
 echo "5) cargo cache (requires cargo-cache)"
 echo "6) Go module cache"
-echo "7) Docker (dangling images/containers)"
+echo "7) Docker (dangling images/containers, build cache)"
 echo "8) Xcode DerivedData"
 echo "9) Hugging Face cache"
 echo "10) Show cache sizes only (no changes)"
-echo "A) All of the above (1-9)"
+echo "11) yarn/pnpm caches"
+echo "12) Unavailable Xcode simulators"
+echo "13) User logs (~/Library/Logs)"
+echo "14) Deno cache"
+echo "15) Old Ruby gem versions"
+echo "A) All of the above (1-9, 11-15)"
 echo "0) Cancel"
 echo ""
 
@@ -203,6 +272,11 @@ else
             8) clean_xcode_derived_data ;;
             9) clean_hugging_face ;;
             10) show_cache_sizes ;;
+            11) clean_yarn_pnpm ;;
+            12) clean_xcode_simulators ;;
+            13) clean_logs ;;
+            14) clean_deno ;;
+            15) clean_gems ;;
             *) print_warning "Unknown option: $choice" ;;
         esac
     done

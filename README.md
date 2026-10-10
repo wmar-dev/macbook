@@ -155,12 +155,17 @@ Options include:
 - Homebrew cache + unused dependencies
 - cargo cache (requires `cargo-cache`)
 - Go module cache
-- Docker (dangling images/containers)
+- Docker (dangling images/containers, build cache)
 - Xcode DerivedData
 - Hugging Face cache
 - Show cache sizes only (no changes)
+- yarn/pnpm caches
+- Unavailable Xcode simulators
+- User logs (`~/Library/Logs`)
+- Deno cache
+- Old Ruby gem versions
 
-Everything cleaned is safely regenerable — caches are simply re-downloaded or rebuilt on next use. The script never touches Trash, Time Machine snapshots, or log files.
+Everything cleaned is safely regenerable — caches are simply re-downloaded or rebuilt on next use. The script never touches Trash or Time Machine snapshots.
 
 ## Battery Life Optimization
 
